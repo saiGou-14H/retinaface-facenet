@@ -43,3 +43,18 @@
 
 ![直方图均衡化后2](https://github.com/saiGou-14H/save-image/blob/main/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E4%BC%9A%E8%AE%AE%E7%AD%BE%E5%88%B0%E7%B3%BB%E7%BB%9F/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97/%E5%8E%9F%E5%A7%8B%E5%9B%BE%E7%89%87%E8%BF%87%E6%9B%9D%E7%9B%B4%E6%96%B9%E5%9B%BE%E5%9D%87%E8%A1%A1%E5%8C%96%E5%A4%84%E7%90%86%E5%90%8E.png)
 
+## 动态更新人脸库
+
+每个用户的人脸库容量为十张图片，后台对识别成功并且确认为当前人脸的个人已有人脸信息进行动态更新，当库满时再次更新时后端会剃除达标率最低的一张人脸。
+
+识别时：
+
+![识别时](https://github.com/saiGou-14H/save-image/blob/main/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E4%BC%9A%E8%AE%AE%E7%AD%BE%E5%88%B0%E7%B3%BB%E7%BB%9F/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97/%E4%BA%BA%E8%84%B8%E5%BA%93%E5%8A%A8%E6%80%81%E6%9B%B4%E6%96%B01.png)
+
+识别后：
+
+![识别后](https://github.com/saiGou-14H/save-image/blob/main/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E4%BC%9A%E8%AE%AE%E7%AD%BE%E5%88%B0%E7%B3%BB%E7%BB%9F/%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E6%A8%A1%E5%9D%97/%E4%BA%BA%E8%84%B8%E5%BA%93%E5%8A%A8%E6%80%81%E6%9B%B4%E6%96%B02.png)
+
+以上例子中识别成功后在该用户人脸库达标率达到80%（大于设置阈值70%），剔除人脸库中与闸机识别成功人脸欧氏距离最大的一个该用户人脸信息，添加闸机识别时的人脸，对该用户人脸库进行动态更新。
+
+通过设置指定阈值动态更新人脸库操作，让用户的人脸信息可靠地动态更新，进而提升人脸识别的准确性。
